@@ -4,11 +4,11 @@ local M = {}
 local supported = nil
 
 --- Check if running inside a terminal multiplexer that blocks OSC 66
+--- tmux supports allow-passthrough, so only Zellij is blocked
 ---@return boolean
 function M.is_multiplexed()
 	return vim.env.ZELLIJ ~= nil
 		or vim.env.ZELLIJ_SESSION_NAME ~= nil
-		or vim.env.TMUX ~= nil
 end
 
 --- Check if the terminal supports OSC 66 text sizing
